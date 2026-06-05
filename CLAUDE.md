@@ -156,6 +156,7 @@ class WorkflowContext:
 
 ## Coding Conventions
 
+- **Follow latest Python idioms.** Use `match` for pattern matching, `X | Y` union syntax over `Union[X, Y]`, `pathlib.Path` over `os.path`, `ruff` for linting and formatting, and `@dataclass(frozen=True)` for immutable data. Prefer `pyproject.toml` for all project configuration. Target Python 3.12+ features — do not write code that is compatible with older versions.
 - **Type everything.** No `Any`. No untyped dicts passed between layers.
 - **Rules in YAML, not code.** Materiality thresholds, FX fallbacks, GL mappings — all in `config/`. If a finance team needs to change a threshold, they edit YAML, not Python.
 - **Every skill is independently testable.** Skills receive a `WorkflowContext` and return a `StepResult`. No side effects. No external calls except through `model/client.py`.
